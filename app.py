@@ -14,10 +14,10 @@ application = Flask(__name__)
 def webhook():
     data = request.get_json()
     log(data)
-    if data['text'] != "/roll":
+    if data['sender_type'] == 'bot' or data['text'] != "/roll":
        return "ok", 200
 
-    log('Recieved {}'.format(data))
+    log('Received {}'.format(data))
 
     roll = random.randint(1, 20)
     if roll == 1:
@@ -27,10 +27,8 @@ def webhook():
     elif roll == 20:
         roll = "CRITICAL"
 
-  # We don't want to reply to ourselves!
-    if data['name'] != 'vance-d20-bot':
-        msg = '{}, you rolled "{}".'.format(data['name'], roll)
-        send_message(msg)
+    msg = '{}, you rolled "{}".'.format(data['name'], roll)
+    send_message(msg)
 
     return "ok", 200
 
