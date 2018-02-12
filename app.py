@@ -13,6 +13,7 @@ application = Flask(__name__)
 @application.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
+    log(data)
     if data.text != "/roll":
        return "ok", 200
 
