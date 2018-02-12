@@ -23,7 +23,7 @@ def webhook():
     if roll == 1:
         roll = "a failure"
     elif roll < 5:
-        roll = roll + " ouch"
+        roll = str(roll) + " ouch"
     elif roll == 20:
         roll = "CRITICAL"
 
