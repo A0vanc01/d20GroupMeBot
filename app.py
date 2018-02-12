@@ -35,8 +35,8 @@ def webhook():
     return "ok", 200
 
 def send_message(msg):
-    #url  = 'https://api.groupme.com/v3/bots/post'
-    url = 'https://web.groupme.com/chats'
+    url  = 'https://api.groupme.com/v3/bots/post'
+    #url = 'https://web.groupme.com/chats'
 
     data = {
         'bot_id' : os.getenv('GROUPME_BOT_ID'),
