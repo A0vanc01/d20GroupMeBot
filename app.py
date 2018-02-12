@@ -8,9 +8,9 @@ from urllib.request import Request, urlopen
 
 from flask import Flask, request
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/', methods=['POST'])
+@application.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
     if data.text != "/roll":
@@ -47,3 +47,6 @@ def send_message(msg):
 def log(msg):
     print(str(msg))
     sys.stdout.flush()
+
+if __name__=="__main__":
+    application.run()
