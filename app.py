@@ -14,7 +14,7 @@ application = Flask(__name__)
 def webhook():
     data = request.get_json()
     log(data)
-    if data.text != "/roll":
+    if data['text'] != "/roll":
        return "ok", 200
 
     log('Recieved {}'.format(data))
