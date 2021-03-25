@@ -21,7 +21,7 @@ def webhook():
 
     roll = random.randint(1, 20)
     if roll == 1:
-        roll = "a failure"
+        roll = "a shameful failure"
     elif roll < 5:
         roll = str(roll) + " ouch"
     elif roll == 20:
